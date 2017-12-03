@@ -1,6 +1,9 @@
+import { setTimeout } from "timers";
+
 var arp = require("node-arp");
 var localip = require('local-ip'); // module for checking IP
 var localIp = ""; // stores the local IP
+var scanInterval = 60000; // delay between scans in ms
 
 var express = require("express");
 var app = express();
@@ -24,10 +27,8 @@ app.get("/get-mac-addresses", function (req, res) {
 
 function scanArp() {
   if (localIp == "") { // if local IP is not found yet...
-    setTimeout(function() { // wait 3 seconds and try again
-      console.log("Local IP not found yet, trying again in 3 seconds");
-      scanArp();
-    }, 3000);
+    console.log("[Error] Unable to scan ARP table; local IP not found yet");
+    return;
   }
 
   var localIpPrefix = localIp.split(".", 3).join(".") + "."; // get first 3 numbers of IP, e.g. 10.196.1, changes with each router
@@ -36,7 +37,7 @@ function scanArp() {
   for (i = 1; i < 256; i++) {
     // grab mac addresses from 1 - 256
     arp.getMAC(localIpPrefix + i, function(err, mac) { // normally 192.168.1. for home networks
-      if (!err) {
+      if (!err {
           console.log(mac);
           // insert into db
           db.insert({[mac]: Date.now()});
@@ -48,6 +49,7 @@ function scanArp() {
       }
     });
   }
+    
 }
 
 // get local ip for this machine
@@ -56,6 +58,8 @@ localip("wlan0", function(err, res1) { // wlan0 is the wifi module name on Linux
     localip("Wi-Fi", function(err, res2) { // try Windows wifi name if error
       if (!err) {
         localIp = res2;
+      } else {
+        console.log("[Error] Local IP unable to be found");
       }
     });
   } else {
@@ -63,6 +67,10 @@ localip("wlan0", function(err, res1) { // wlan0 is the wifi module name on Linux
   }
 });
 
+//start scan
+setInterval(function() {
+  scanArp();
+}, scanInterval);
 
 app.listen(port, function() { 
   console.log("server started on port " + port);
