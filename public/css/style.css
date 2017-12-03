@@ -1,7 +1,8 @@
 * {
   margin:0;
   padding:0;
-  font-family: Helvetica, Arial, sans-serif;
+  /* font-family: Helvetica, Arial, sans-serif; */
+  font-family:monospace;
   color:white;
 }
 
@@ -19,10 +20,26 @@ h1 {
 
 #mac-list {
   font-size: 20px;
+  margin-top:10px;
 }
 
 .mac-item {
   border:white 1px solid;
   padding:20px 30px;
   margin-top:-1px;
+}
+
+.button {
+  border:white 1px solid;
+  padding:10px 20px;
+  margin-top:-1px;
+  cursor: pointer;
+  display:inline-block;
+  transition-duration: 0.2s;
+}
+
+.button:hover {
+  background-color:white;
+  color:black;
+  transition-duration: 0.2s;
 }
