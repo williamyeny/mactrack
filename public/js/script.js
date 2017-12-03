@@ -39,3 +39,5 @@ function getRequest(reqName, callback) {
   
   request.send();
 }
+
+updateMacList();
