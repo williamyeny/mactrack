@@ -11,11 +11,28 @@ function updateMacList() {
     macAddresses = JSON.parse(macAddresses);
 
     // add to list
-    for (m in macAddresses) {
-      var div = document.createElement("div");
-      div.className = "mac-item";
-      div.innerHTML = macAddresses[m].address;
-      macList.appendChild(div);  
+    for (i in macAddresses) {
+      var macItem = document.createElement("div");
+      macItem.className = "mac-item";
+
+      // add address
+      var macItemAddress = document.createElement("div");
+      macItemAddress.className = "mac-item-address";
+      macItemAddress.appendChild(document.createTextNode(macAddresses[i].address));
+
+      // add online/offline status
+      var macItemStatus = document.createElement("div"); 
+      var timestamps = macAddresses[i].timestamps;
+      if (Date.now() - timestamps[timestamps.length-1] <= 60000) { // check if device has been online in the past minute
+        macItemStatus.className = "mac-item-status-online";
+      } else {
+        macItemStatus.className = "mac-item-status-offline";
+      }
+
+      // append HTML
+      macItem.appendChild(macItemStatus);
+      macItem.appendChild(macItemAddress);
+      macList.appendChild(macItem);
     }
   });
 
