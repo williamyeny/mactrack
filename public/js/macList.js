@@ -47,7 +47,6 @@ function updateMacList() {
     }
   });
 
-
 }
 
 function getRequest(reqName, callback) {
