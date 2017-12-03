@@ -1,5 +1,5 @@
 function createGraph(id, timestamps) {
-  console.log('creating new graph with id ' + id + ".");
+  // console.log('creating new graph with id ' + id + ".");
   new p5( function( p ) {
     var ms24h = 24 * 60 * 60 * 1000;
     var time24Hours = Date.now() - (ms24h); // the time 24 hours ago
@@ -20,7 +20,7 @@ function createGraph(id, timestamps) {
         // check to see if creating rect is necessary
         if (i > 0 && i < points.length-1) { // if it's not the first or last point
           if (points[i-1] + 5 <= points[i+1]) { // if the prev and next block overlap
-            console.log("skipping...");
+            // console.log("skipping...");
             continue; // don't draw rect
             
           }

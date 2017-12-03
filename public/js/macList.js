@@ -33,8 +33,7 @@ function updateMacList() {
       var macItemGraph = document.createElement("div");
       var id = "mac-graph-" + i;
       macItemGraph.id = id;
-      console.log("creating w tids id");
-      console.log(timestamps);
+      // console.log(timestamps);
 
       // append HTML
       macItem.appendChild(macItemStatus);
