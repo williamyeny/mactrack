@@ -1,5 +1,3 @@
-import { setTimeout } from "timers";
-
 var arp = require("node-arp");
 var localip = require('local-ip'); // module for checking IP
 var localIp = ""; // stores the local IP
@@ -39,11 +37,18 @@ function scanArp() {
     arp.getMAC(localIpPrefix + i, function(err, mac) { // normally 192.168.1. for home networks
       if (!err) {
           console.log(mac);
-          // insert into db
-          db.insert({[mac]: Date.now()});
 
-          // persist to disk
-          db.persistence.compactDatafile;
+          // insert into db
+          db.update({
+            address: mac
+          }, {
+            $push: {
+              timestamps: Date.now()
+            }
+          },{
+            upsert: true // create new entry if does not exist
+          });
+
       } else {
         // console.log("error: " + mac);
       }
