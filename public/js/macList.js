@@ -29,9 +29,14 @@ function updateMacList() {
         macItemStatus.className = "mac-item-status-offline";
       }
 
+      // add visualization
+      var macItemGraph = document.createElement("canvas");
+      macItemGraph.id = "mac-graph-" + i;
+
       // append HTML
       macItem.appendChild(macItemStatus);
       macItem.appendChild(macItemAddress);
+      macItem.appendChild(macItemGraph);
       macList.appendChild(macItem);
     }
   });
@@ -57,4 +62,4 @@ function getRequest(reqName, callback) {
   request.send();
 }
 
-updateMacList();
+updateMacList(); 

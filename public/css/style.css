@@ -48,6 +48,15 @@ div[class$=offline] {
   background-color:rgb(70, 70, 70);
 }
 
+canvas[id^=mac-graph] {
+  display:inline-block;
+  height:63px;
+  position: absolute;
+  margin-top:-20px;
+  margin-left:20px;
+  width:700px;
+}
+
 .button {
   border:white 1px solid;
   padding:10px 20px;
