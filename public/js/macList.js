@@ -29,15 +29,21 @@ function updateMacList() {
         macItemStatus.className = "mac-item-status-offline";
       }
 
-      // add visualization
-      var macItemGraph = document.createElement("canvas");
-      macItemGraph.id = "mac-graph-" + i;
+      // add graph container
+      var macItemGraph = document.createElement("div");
+      var id = "mac-graph-" + i;
+      macItemGraph.id = id;
+      console.log("creating w tids id");
+      console.log(timestamps);
 
       // append HTML
       macItem.appendChild(macItemStatus);
       macItem.appendChild(macItemAddress);
       macItem.appendChild(macItemGraph);
       macList.appendChild(macItem);
+
+      // actually create the graph
+      createGraph(id, timestamps); // statusGraph.js
     }
   });
 
@@ -62,4 +68,6 @@ function getRequest(reqName, callback) {
   request.send();
 }
 
-updateMacList(); 
+
+updateMacList();
+ 
