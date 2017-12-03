@@ -4,6 +4,8 @@ var express = require("express");
 var app = express();
 var port = 4567;
 
+var Datastore = require('nedb');
+var db = new Datastore({ filename: "", autoload: true });
 
 app.use(express.static("public"));
 app.set("view engine", "ejs");
