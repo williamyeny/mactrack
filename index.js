@@ -20,7 +20,9 @@ app.get("/", function(req, res) {
 });
 
 app.get("/get-mac-addresses", function (req, res) {
-
+  db.find({}, function (err, macs) {
+    res.send(macs);
+  });
 });
 
 function scanArp() {
