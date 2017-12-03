@@ -16,7 +16,12 @@ app.set("views", "views");
 
 app.get("/", function(req, res) {
   res.render("index.ejs");
+  
+});
+
+app.get("/scan-arp", function (req, res) {
   scanArp();
+  res.send("Scan ARP request succeeded");
 });
 
 app.get("/get-mac-addresses", function (req, res) {
