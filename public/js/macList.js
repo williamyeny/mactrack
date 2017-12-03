@@ -1,5 +1,8 @@
 function updateMacList() {
-  //remove mac items
+  // indicate retrieval
+  document.getElementById("refresh").innerHTML = "Retrieving...";
+
+  // remove mac items
   var macList = document.getElementById("mac-list");
   while (macList.firstChild) {
     macList.removeChild(macList.firstChild);
@@ -44,6 +47,8 @@ function updateMacList() {
       // actually create the graph
       createGraph(id, timestamps); // statusGraph.js
     }
+
+    document.getElementById("refresh").innerHTML = "Refresh list";
   });
 
 }
