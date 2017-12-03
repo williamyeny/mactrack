@@ -37,7 +37,7 @@ function scanArp() {
   for (i = 1; i < 256; i++) {
     // grab mac addresses from 1 - 256
     arp.getMAC(localIpPrefix + i, function(err, mac) { // normally 192.168.1. for home networks
-      if (!err {
+      if (!err) {
           console.log(mac);
           // insert into db
           db.insert({[mac]: Date.now()});
