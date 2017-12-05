@@ -16,16 +16,25 @@ app.set("views", "views");
 
 app.get("/", function(req, res) {
   res.render("index.ejs");
-  
 });
 
-app.get("/scan-arp", function (req, res) {
+app.get("/view-mac/:address", function(req, res) {
+  res.render("mac-view.ejs", {address: req.params.address});
+});
+
+app.get("/scan-arp", function (req, res) { // manual scan
   scanArp();
   res.send("Scan ARP request succeeded");
 });
 
-app.get("/get-mac-addresses", function (req, res) {
+app.get("/get-all-macs", function (req, res) {
   db.find({}, function (err, macs) {
+    res.send(macs);
+  });
+});
+
+app.get("/get-mac/:address", function (req, res) {
+  db.find({address: req.params.address}, function (err, macs) {
     res.send(macs);
   });
 });

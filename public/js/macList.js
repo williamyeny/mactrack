@@ -9,7 +9,7 @@ function updateMacList() {
   }
 
   // request mac addresses
-  getRequest("/get-mac-addresses", function(macAddresses) {
+  getRequest("/get-all-macs", function(macAddresses) {
     // convert result to JSON
     macAddresses = JSON.parse(macAddresses);
 

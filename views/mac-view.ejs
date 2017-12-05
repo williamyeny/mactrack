@@ -1,0 +1,13 @@
+<head>
+    <title>MacTrack - Viewing Address</title>
+    <link rel="stylesheet" href="/css/style.css"> 
+    
+    
+  </head>
+  <body>
+    <h1 id="title"><%= address %></h1>
+    <div class="button" id="refresh" onclick="updateMac()">Retrieving...</div>
+    <div class="button" onclick="window.location.href = 'http://' + window.location.host;">Go back</div>
+    <div id="mac-list"></div>
+    <script src="/js/addressInfo.js"></script>
+  </body>
