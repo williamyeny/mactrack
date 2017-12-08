@@ -1,6 +1,8 @@
 function updateMac() {
   var address = document.getElementById("title").innerHTML;
 
+  document.getElementById("refresh").innerHTML = "Retrieving...";
+
   // remove mac items
   var macList = document.getElementById("mac-list");
   while (macList.firstChild) {
@@ -20,6 +22,8 @@ function updateMac() {
       // append to macList
       macList.appendChild(macItem);
     }
+
+    document.getElementById("refresh").innerHTML = "Refresh timestamps";
 
   });
 }

@@ -44,6 +44,11 @@ function updateMacList() {
       macItem.appendChild(macItemGraph);
       macList.appendChild(macItem);
 
+      // add click listener 
+      macItemAddress.addEventListener("click", function() {
+        window.location.href = "http://" + window.location.host + "/view-mac/" + this.innerHTML;
+      });
+
       // actually create the graph
       createGraph(id, timestamps); // statusGraph.js
     }

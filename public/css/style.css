@@ -31,6 +31,14 @@ h1 {
 
 .mac-item-address {
   display:inline-block;
+  cursor: pointer;
+  transition-duration: 0.2s;
+}
+
+.mac-item-address:hover {
+  background-color:white;
+  color:black;
+  transition-duration: 0.2s;
 }
 
 div[class^=mac-item-status] {
