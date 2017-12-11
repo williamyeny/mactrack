@@ -65,17 +65,17 @@ Since we know the horizontal width of the canvas to be 700 pixels, it should eas
 I had to optimize the visualization creation to reduce loading times. 
 Here, I check if a block is necessary to draw based on if its preceding and following blocks overlap.
 
-  for (i in points) {
-    // check if rect should be drawn
-    if (i > 0 && i < points.length-1) { // if it's not the first or last point
-      if (points[i-1] + 5 <= points[i+1]) { // if the prev and next block overlap
-        continue; // don't draw rect
+      for (i in points) {
+        // check if rect should be drawn
+        if (i > 0 && i < points.length-1) { // if it's not the first or last point
+          if (points[i-1] + 5 <= points[i+1]) { // if the prev and next block overlap
+            continue; // don't draw rect
+          }
+        }
+        // draw rect
+        p.fill(0, 255, 0);
+        p.rect(points[i]- 2.5, 63/2 - 2.5, 5, 5);
       }
-    }
-    // draw rect
-    p.fill(0, 255, 0);
-    p.rect(points[i]- 2.5, 63/2 - 2.5, 5, 5);
-  }
 
 [You can view the full visualization code here](https://github.com/williamyeny/mactrack/blob/master/public/js/statusGraph.js)
 
