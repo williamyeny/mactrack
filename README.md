@@ -79,3 +79,13 @@ Here, I check if a block is necessary to draw based on if its preceding and foll
 
 [You can view the full visualization code here](https://github.com/williamyeny/mactrack/blob/master/public/js/statusGraph.js)
 
+## Design and Form
+
+Since this device is designed to do secret operations, the design should reflect that. The enclosure is designed to be as inconspicuous as possible, in terms of size, color and graphics.
+
+At first, I drafted a few enclosures to be 3D printed, but I realized that the smallest and most polished-looking enclosure was the enclosure that came with the kit. However, the bright red bottom was a problem -- it stood out too much and definitely drew attention. Therefore, I headed over to the Arts Annex to paint the bottom white to make the entire enclosure white. I considered painting it full black, but I imagined sticking the device on a wall, and walls are usually white. Plus, black definitely seems more sinister compared to an innocent white. 
+
+For a final touch, I added a faux "OIT" sticker. This serves a dual purpose -- to cover up the Raspberry Pi logo on the enclosure and to instill a false sense of security. I came up with this idea after walking around in my dorm and noticed the OIT wireless access point boxes at various outlets and realized that no one questioned if these boxes are actually from OIT, simply because they had a sticker that said "OIT" on it. Therefore, I figured if I replicated the sticker on my device, no one would really question it even if they did stumble upon it.
+
+
+
