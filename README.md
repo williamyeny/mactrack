@@ -7,6 +7,14 @@ It also incorporates an accelerometer in case the device is physically tampered 
 
 ## Technical Description
 ### Hardware
+An MMA8452Q accelerometer is connected to the Raspberry Pi over an I2C wiring (Fritzing was not cooperating -- hopefully this is acceptable):
+![wiring](https://i.imgur.com/E9DGD1K.png)
+
+This allows the acceleration from all three axes to be read and interpreted via a Python library explained below in the software section. Using I2C was extremely convenient since there were only two other wires besides the power wires, saving on space and making soldering easier.
+
+I initially thought about adding more sensors -- however, I felt like using anything larger than the small accelerometer chip may not have fit into the compact enclosure, which would detract from this device's theme of stealth. Also, adding additional buttons or lights would also make this device less inconspicuous, which is why I chose to omit these components in the final design.
+
+![Hardware photo](https://i.imgur.com/Pj1E3Od.png)
 
 ### Software
 The software running on the Raspberry Pi Zero W is primarily a Node.js web server and Python script. 
@@ -41,7 +49,7 @@ In order to find the IP addresses to scan, it finds the base IP using a module c
 [You can view the full backend server code here](https://github.com/williamyeny/mactrack/blob/master/index.js).
 
 For the front end, I use EJS as the templating engine and grab data from the backend using a simple API.
-It visually updates the frontend by deleting the current list and creating a new one with data retrieved from the API.
+It visually updates the frontend by deleting the current list and creating a new one with data retrieved from the API. The design/aesthetic of the actual webpage will be discussed in the Design/Form section.
 [You can view the full frontend code here](https://github.com/williamyeny/mactrack/blob/master/public/js/macList.js)
 
 In order to create the visualization, I used p5.js as the drawing library. 
@@ -79,6 +87,16 @@ Here, I check if a block is necessary to draw based on if its preceding and foll
 
 [You can view the full visualization code here](https://github.com/williamyeny/mactrack/blob/master/public/js/statusGraph.js)
 
+For reading the accelerometer, I used a Python library made for the specific accelerometer model. Then, I combined the three axes' data to get the overall acceleration. It was a bit trickier to get the script to quit Node.js, but I eventually found a way using some rudimentary Linux knowledge:
+
+    # get ID of node.js process
+    nodePid = check_output(["pidof","node"])
+    ...
+    # kill node.js process
+    os.kill(nodePid, signal.SIGTERM)
+
+[You can view the full Python code here](https://github.com/williamyeny/mactrack/blob/master/accel.py)
+
 ## Design and Form
 
 Since this device is designed to do secret operations, the design should reflect that. The enclosure is designed to be as inconspicuous as possible, in terms of size, color and graphics.
@@ -86,6 +104,8 @@ Since this device is designed to do secret operations, the design should reflect
 At first, I drafted a few enclosures to be 3D printed, but I realized that the smallest and most polished-looking enclosure was the enclosure that came with the kit. However, the bright red bottom was a problem -- it stood out too much and definitely drew attention. Therefore, I headed over to the Arts Annex to paint the bottom white to make the entire enclosure white. I considered painting it full black, but I imagined sticking the device on a wall, and walls are usually white. Plus, black definitely seems more sinister compared to an innocent white. 
 
 For a final touch, I added a faux "OIT" sticker. This serves a dual purpose -- to cover up the Raspberry Pi logo on the enclosure and to instill a false sense of security. I came up with this idea after walking around in my dorm and noticed the OIT wireless access point boxes at various outlets and realized that no one questioned if these boxes are actually from OIT, simply because they had a sticker that said "OIT" on it. Therefore, I figured if I replicated the sticker on my device, no one would really question it even if they did stumble upon it.
+
+
 
 
 
