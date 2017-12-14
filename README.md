@@ -1,20 +1,23 @@
 # mactrack
 
+![device photo](https://i.imgur.com/YcGjg9K.png)
+
 MacTrack is a Raspberry Pi mac address extractor and logger. 
 It's designed to secretely and periodically scan the router it is connected to for all connected devices and log the results.
 Operators can access the log data in either text or visual form via a web interface.
-It also incorporates an accelerometer in case the device is physically tampered with -- when moved, it quits its core processes and alerts the user
+It also incorporates an accelerometer in case the device is physically tampered with -- when moved, it quits its core processes and alerts the user.
 
 ## Technical Description
 ### Hardware
 An MMA8452Q accelerometer is connected to the Raspberry Pi over an I2C wiring (Fritzing was not cooperating -- hopefully this is acceptable):
+
 ![wiring](https://i.imgur.com/E9DGD1K.png)
 
 This allows the acceleration from all three axes to be read and interpreted via a Python library explained below in the software section. Using I2C was extremely convenient since there were only two other wires besides the power wires, saving on space and making soldering easier.
 
 I initially thought about adding more sensors -- however, I felt like using anything larger than the small accelerometer chip may not have fit into the compact enclosure, which would detract from this device's theme of stealth. Also, adding additional buttons or lights would also make this device less inconspicuous, which is why I chose to omit these components in the final design.
 
-![Hardware photo](https://i.imgur.com/Pj1E3Od.png)
+![Hardware photo](https://i.imgur.com/URDrGuc.jpg)
 
 ### Software
 The software running on the Raspberry Pi Zero W is primarily a Node.js web server and Python script. 
