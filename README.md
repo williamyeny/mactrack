@@ -49,6 +49,10 @@ In order to find the IP addresses to scan, it finds the base IP using a module c
       }
     }
 
+Here's a quick look into the database of mac addresses after a few days of periodic scanning:
+
+![database](https://i.imgur.com/STw0s5G.png)
+
 [You can view the full backend server code here](https://github.com/williamyeny/mactrack/blob/master/index.js).
 
 For the front end, I use EJS as the templating engine and grab data from the backend using a simple API.
