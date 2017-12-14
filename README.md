@@ -122,7 +122,16 @@ From the start, I wanted my virtual interface to be a clear contrast to my physi
 
 The main colors of a generic "hacker" aesthetic is pure black and white with a neon green. I based this around society's interpretation of how hackers work, with scrolling green text among a harsh black theme. Here, I made sure to highlight the harshness by having pure white on top of pure black and sharp edges on thin borders, as opposed to modern themes' rounded borders and softer colors. I also decided to use pure green (0, 255, 0) as a functional part of my interface -- it signifies if a mac address is "online", which makes sense. Another choice I made was the font; I initially had the usual Helvetica/sans-serif but I ditched it in favor of a monospaced "typewriter" font, which is yet another cliche in hacker software depictions.
 
+## Self-Evaluation / Reflection
 
+Overall, I'm very proud of my project. I not only worked with tools I was familiar with, but also stepped out of my comfort zone to discover new technologies. This project was a result of many hours of typing code (sometimes until the sun came up, whoops) and critical design decisions, so I'm happy to see it working perfectly. Plus, the subject of security interests me greatly, so I was very excited to work on it!
 
+The things I'm most proud of is the web interface -- the design was carefully thought out and the technology behind it took all of my cumulative web development knowledge. However, a close second is the hardware integration. Having never touched hardware interfacing with a Raspberry Pi, it took a lot of research and trial and error to finally have it working, but I'm proud of the resulting clean code and wiring.
+
+There are absolutely things I would improve on, given more time. First of all, the detailed logs in text form is a bit unrefined. I would first format the logs to a more readable format (unlike the huge load of information presented to the user) and have it so it would tell the periods of when the device was online (e.g. 12:00 - 7:30), rather than if the device was online at the minute.
+
+Second of all, I would improve the visualization. Right now, it's only giving a simple 24 hour preview. However, I would like it to extend past that by having the user be able to specify the length of the period (e.g. 48 hours or 6 weeks). I would also like for the user to be able to hover over the visualization and get information like the time at the place where the cursor is hovering over.
+
+Finally, I would've liked to add some sort of removable adhesive on the bottom of the device to make it easier to stick on the wall or ceiling, for example. Right now, it just has its rubber feet, which is OK for the floor or a table, but it definitely looks much more sketchy plopped down on the floor. Having some sort of attachment method would make the device much more flexible in its positioning.
 
 
