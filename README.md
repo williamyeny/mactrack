@@ -102,11 +102,21 @@ For reading the accelerometer, I used a Python library made for the specific acc
 
 ## Design and Form
 
+### Physical
+
 Since this device is designed to do secret operations, the design should reflect that. The enclosure is designed to be as inconspicuous as possible, in terms of size, color and graphics.
 
 At first, I drafted a few enclosures to be 3D printed, but I realized that the smallest and most polished-looking enclosure was the enclosure that came with the kit. However, the bright red bottom was a problem -- it stood out too much and definitely drew attention. Therefore, I headed over to the Arts Annex to paint the bottom white to make the entire enclosure white. I considered painting it full black, but I imagined sticking the device on a wall, and walls are usually white. Plus, black definitely seems more sinister compared to an innocent white. 
 
 For a final touch, I added a faux "OIT" sticker. This serves a dual purpose -- to cover up the Raspberry Pi logo on the enclosure and to instill a false sense of security. I came up with this idea after walking around in my dorm and noticed the OIT wireless access point boxes at various outlets and realized that no one questioned if these boxes are actually from OIT, simply because they had a sticker that said "OIT" on it. Therefore, I figured if I replicated the sticker on my device, no one would really question it even if they did stumble upon it.
+
+### Virtual
+
+From the start, I wanted my virtual interface to be a clear contrast to my physical interface. Since the theme of this device is under security or penetration testing, I wanted my virtual interface to be somewhat of a parody of the "hacker" aesthetic.
+
+![web interface](https://i.imgur.com/YL21oew.png)
+
+The main colors of a generic "hacker" aesthetic is pure black and white with a neon green. I based this around society's interpretation of how hackers work, with scrolling green text among a harsh black theme. Here, I made sure to highlight the harshness by having pure white on top of pure black and sharp edges on thin borders, as opposed to modern themes' rounded borders and softer colors. I also decided to use pure green (0, 255, 0) as a functional part of my interface -- it signifies if a mac address is "online", which makes sense. Another choice I made was the font; I initially had the usual Helvetica/sans-serif but I ditched it in favor of a monospaced "typewriter" font, which is yet another cliche in hacker software depictions.
 
 
 
